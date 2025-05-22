@@ -199,12 +199,12 @@ useEffect(() => {
   return (
     <React.Fragment>
       <nav>
-        <img src="/rt-logo.png" className="rt_app_logo" alt="logo" />
+        <img src="/app-logo.webp" className="rt_app_logo" alt="logo" />
         <h2 className="app_title">RT Image Converter</h2>
         
         <div onClick={toggleTheme} aria-label="Toggle Theme" style={{ cursor: "pointer" }}>
   <img className="rt_theme_toggle_icon"
-    src={theme === "light" ? "/dark-mode.png" : "/light-mode.png"}
+    src={theme === "light" ? "/light-mode.webp" : "/dark-mode.webp"}
     alt="Toggle theme icon"/>
 </div>
 
@@ -220,8 +220,8 @@ useEffect(() => {
           onDragLeave={handleDragLeave}
       >
         <div className="rt_drag_icon_wrap">
-        <img src="/drag-icon-light.png" alt="drag" className="rt_drag_icon light" />
-        <img src="/drag-icon-dark.png" alt="drag" className="rt_drag_icon dark" />
+        <img src="/drag-icon-light.webp" alt="drag" className="rt_drag_icon light" />
+        <img src="/drag-icon-dark.webp" alt="drag" className="rt_drag_icon dark" />
         </div>
           
           <h3>Drag & Drop Images Here or Click to Select</h3>
@@ -279,7 +279,7 @@ useEffect(() => {
                       ? "Converting..."
                       : "Convert"}
                       
-                      <img src="/convert-icon.png" width="14" height="14" className="rt_convert_icon" alt="convert-icon" />
+                      <img src="/convert-icon.webp" width="14" height="14" className="rt_convert_icon" alt="convert-icon" />
                   </button>
 
                   </div>
@@ -295,7 +295,7 @@ useEffect(() => {
               disabled={isConvertAllDisabled}
             >
               Convert All
-              <img src="/convert-all.png" width="20" height="20" className="rt_convert_all_icon" alt="convert-all-icon" />
+              <img src="/convert-all.webp" width="16" height="16" className="rt_convert_all_icon" alt="convert-all-icon" />
             </button>
           )}
         </div>
@@ -332,7 +332,7 @@ useEffect(() => {
             disabled={downloadedIds.includes(id)}
           >
             {downloadedIds.includes(id) ? "Downloaded" : "Download"}
-            <img src="/download.png" width="16" height="16" className="rt_download_icon" alt="download icon" />
+            <img src="/download.webp" width="18" height="18" className="rt_download_icon" alt="download icon" />
         </button>
 
         </div>
@@ -367,7 +367,7 @@ useEffect(() => {
           >
             Download All
             {/* <span>({pending.length})</span> */}
-            <img src="/all-download.png" width="14" height="14" className="rt_all_download_icon" alt="all downlaod icon" />
+            <img src="/all-download.webp" width="14" height="14" className="rt_all_download_icon" alt="all downlaod icon" />
           </button>
         );
       })()}
