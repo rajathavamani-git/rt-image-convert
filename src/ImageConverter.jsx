@@ -279,7 +279,7 @@ useEffect(() => {
                       ? "Converting..."
                       : "Convert"}
                       
-                      <img src="/convert-icon.png" className="rt_convert_icon" alt="convert-icon" />
+                      <img src="/convert-icon.png" width="14" height="14" className="rt_convert_icon" alt="convert-icon" />
                   </button>
 
                   </div>
@@ -295,7 +295,7 @@ useEffect(() => {
               disabled={isConvertAllDisabled}
             >
               Convert All
-              <img src="/convert-all.png" className="rt_convert_all_icon" alt="convert-all-icon" />
+              <img src="/convert-all.png" width="20" height="20" className="rt_convert_all_icon" alt="convert-all-icon" />
             </button>
           )}
         </div>
@@ -332,7 +332,7 @@ useEffect(() => {
             disabled={downloadedIds.includes(id)}
           >
             {downloadedIds.includes(id) ? "Downloaded" : "Download"}
-            <img src="/download.png" className="rt_download_icon" alt="download icon" />
+            <img src="/download.png" width="16" height="16" className="rt_download_icon" alt="download icon" />
         </button>
 
         </div>
@@ -365,8 +365,9 @@ useEffect(() => {
             onClick={handleDownloadAll}
             style={{ marginTop: 10 }}
           >
-            Download All <span>({pending.length})</span>
-            <img src="/all-download.png" className="rt_all_download_icon" alt="all downlaod icon" />
+            Download All
+            {/* <span>({pending.length})</span> */}
+            <img src="/all-download.png" width="14" height="14" className="rt_all_download_icon" alt="all downlaod icon" />
           </button>
         );
       })()}

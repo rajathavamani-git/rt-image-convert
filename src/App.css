@@ -202,8 +202,7 @@ cursor: pointer;
 }
 
 .rt-btn:hover {
-  background: var(--secondaryBrandColor);
-  box-shadow: var(--box-shadow);
+  transform: skew(-5deg);
 }
 
 .rt-btn.rt-btn-outline {
@@ -213,8 +212,6 @@ cursor: pointer;
   margin-top: 10px;
 }
 .rt-btn.rt-btn-outline:hover {
-  background: var(--secondaryBrandColor);
-  color: var(--whiteText);
   border-color: var(--secondaryBrandColor);
   box-shadow: var(--box-shadow);
 }
@@ -286,14 +283,6 @@ cursor: pointer;
 color: var(--whiteText);
 font-weight: 600;
 margin-bottom: 10px;
-}
-
-.rt_download_icon,.rt_convert_icon,.rt_convert_all_icon{
-width: 24px;
-}
-
-.rt_all_download_icon{
-width: 14px;
 }
 
 [data-theme="light"] .rt_file_name{
@@ -481,7 +470,7 @@ margin-bottom: 10px;
 .rt_drag_drop_container h3{
 line-height: 1.5;
 width: 100%;
-font-size: 20px;
+font-size: 18px;
   }
   .rt_format_buttons_wrapper {
     margin: 0px 0 30px;
@@ -519,6 +508,14 @@ font-size: 16px;
 }
 footer h6{
 font-size: 12px;
+line-height: 1.5;
+}
+.rt_drag_icon{
+width: 70px;
+}
+.rt_drag_icon_wrap{
+width: 110px;
+height: 110px;
 }
 .rt-btn,
 .rt-btn-format,
@@ -535,11 +532,21 @@ font-size: 12px;
   object-fit: cover;
   border-radius: 4px;
 }
-.rt_download_icon, .rt_convert_icon, .rt_convert_all_icon {
-  width: 16px;
-}
 
 }
+
+
+@media only screen and (max-width: 420px){
+  .rt_format_buttons{
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .rt-btn-format{
+  flex: 1;
+  }
+}
+
 @media only screen and (max-width: 359px){
 
   .app_title{
