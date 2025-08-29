@@ -1,12 +1,11 @@
-import React from "react";
-import ImageConverter from "./ImageConverter";
-// import logo from './logo.svg';
+
+import RTImageConverter from "./RTImageConverter";
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <ImageConverter />
+      <RTImageConverter />
     </div>
   );
 }
