@@ -5,14 +5,12 @@ import JSZip from "jszip";
 import toast, { Toaster } from "react-hot-toast";
 import { IoCloseCircle, IoChevronForward, IoEye } from "react-icons/io5";
 import { TbDragDrop } from "react-icons/tb";
-import { MdDarkMode, MdOutlineDarkMode, MdDownloading } from "react-icons/md";
+import { MdDarkMode, MdOutlineDarkMode, MdDownloading, MdInfo } from "react-icons/md";
 
 import { SiConvertio } from "react-icons/si";
 import { FiChevronsRight } from "react-icons/fi";
 import { RiFileDownloadFill } from "react-icons/ri";
-
-
-
+import { PiCheckCircleFill } from "react-icons/pi";
 
 // toast.success("Toaster is back!", { duration: 1000000 });
 
@@ -33,10 +31,9 @@ const RTImageConverter = () => {
   const [rtallDownloaded, rtsetAllDownloaded] = useState(false);
   const [rtDragActive, rtsetDragActive] = useState(false);
   const [rttheme, rtsetTheme] = useState("dark");
-  
   const [rtconversionProgress, rtsetConversionProgress] = useState({});
   const [rtviewImage, setRtViewImage] = useState(null);
-
+  const [rtshowInfo, setRtShowInfo] = useState(false);
 
 useEffect(() => {
   const rtstoredTheme = localStorage.getItem("rttheme");
@@ -435,7 +432,7 @@ const generateLiveMessage = () => {
     <React.Fragment>
       <nav>
   
-        <SiConvertio color="white"  className="rt_app_logo" size={28} />       
+        <SiConvertio color="#14B8A6"  className="rt_app_logo" size={28} />       
         <h2 className="app_title">RT Image Converter</h2>
         
       <button
@@ -444,9 +441,9 @@ const generateLiveMessage = () => {
   style={{ cursor: "pointer", background: "none", border: "none" }}
 >
   {rttheme === "light" ? (
-    <MdDarkMode color="white" size={32} className="rt_theme_toggle_icon" />
+    <MdDarkMode color="#14B8A6" size={32} className="rt_theme_toggle_icon" />
   ) : (
-    <MdOutlineDarkMode color="white" size={32} className="rt_theme_toggle_icon" />
+    <MdOutlineDarkMode color="#14B8A6" size={32} className="rt_theme_toggle_icon" />
   )}
 </button>
 
@@ -478,7 +475,7 @@ const generateLiveMessage = () => {
     <TbDragDrop size={60} className="rt_drag_icon dark" />
   </div>
 
-  <h3>Drag & Drop Images Here or Click to Select</h3>
+  <h3 className="rt_DragContainerTitle">Drag & Drop Images Here or Click to Select</h3>
 </div>
 
       <input
@@ -492,7 +489,17 @@ const generateLiveMessage = () => {
 />
 
       <div className="rt_format_buttons_wrapper">
-        <label className="rt_format_label">Convert to Format:</label>
+        <label className="rt_format_label">
+          Convert to Format:
+          <MdInfo 
+            size={24} 
+            style={{ cursor: "pointer", marginLeft: 6 }}
+            onClick={() => setRtShowInfo(true)}
+            aria-label="Show application information"
+            tabIndex={0}
+            onKeyDown={(e) => { if (e.key === "Enter") setRtShowInfo(true); }}
+          />
+        </label>
         <div className="rt_format_buttons">
           {["webp", "jpeg", "png"].map((format) => (
             <button
@@ -716,6 +723,48 @@ onClick={() => {
     </div>
   </div>
 )}
+
+
+{rtshowInfo && (
+  <div
+    className="rt_info_modal"
+    onClick={() => setRtShowInfo(false)}
+    role="dialog"
+    aria-modal="true"
+    tabIndex={-1}
+    aria-label="App information"
+  >
+    <div 
+      className="rt_info_modal_content"
+      onClick={e => e.stopPropagation()}
+    >
+      <IoCloseCircle 
+        size={28} 
+        color="black"
+        className="rt_modal_close_btn"
+        onClick={() => setRtShowInfo(false)}
+        aria-label="Close info modal"
+      />
+
+      <h3>About RT Image Converter</h3>
+      <p>
+        This app helps you compress and convert your images into 
+        <strong> PNG, JPG, and WEBP </strong> formats.
+      </p>
+      <ul className="rt_app_modal_list">
+        <li><PiCheckCircleFill />Max file size: <strong>10 MB</strong></li>
+        <li><PiCheckCircleFill />Target compressed size: <strong>under 150 KB</strong></li>
+        <li><PiCheckCircleFill />Drag & drop or click to upload</li>
+        <li><PiCheckCircleFill />Batch convert & download as ZIP</li>
+        <li><PiCheckCircleFill />Supports dark and light themes</li>
+      </ul>
+      <p>
+        © {new Date().getFullYear()} Raja Thavamani. Contact: +91 96550 05530
+      </p>
+    </div>
+  </div>
+)}
+
 
 <footer>
   <p className="rtfooterTxt">
