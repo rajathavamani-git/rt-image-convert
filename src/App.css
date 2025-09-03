@@ -161,7 +161,6 @@ outline: none;
 }
 
 .rt_DragContainerTitle{
-width: 20vw;
 font-size: 26px;
 }
 
@@ -786,4 +785,29 @@ font-size: 12px;
   .rt_progress_container{
     margin-left: auto;
   }
+  .rt_info_modal_content h3 {
+    font-size: 17px;
+}
+.rt_info_modal_content{
+    padding: 30px 20px 16px;
+}
+.rt_drag_drop_container{
+padding: 16px;
+}
+.rt_DragContainerTitle {
+    font-size: 20px;
+}
+.rt_format_label{
+font-size: 14px;
+}
+.rt_app_modal_list li{
+font-size: 12px;
+}
+.rt_info_modal_content p{
+font-size: 12px;
+}
+.rt_modal_close_btn{
+top: 0;
+right: 0;
+}
 }
